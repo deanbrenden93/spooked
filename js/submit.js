@@ -65,8 +65,8 @@ function yay(){
 
            url = url.replace(lastsegment, 'custom-feed');
            console.log(url);
-           window.location.assign('https://horrorcast.goodbarber.com/pview/horrorcast/custom-read');
-           //window.location.href = url;
+           //window.location.assign('https://horrorcast.goodbarber.com/pview/horrorcast/custom-read');
+           window.location.href = '/feed.html';
            //$(location).attr('href', 'custom-feed')
            //window.location.replace('/custom-feed');
            //var button = $('a').attr('href', '/custom-feed');
