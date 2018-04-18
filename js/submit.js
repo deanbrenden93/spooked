@@ -54,26 +54,9 @@ function yay(){
                 success: function(data) {
                     //... do something with the data...
                   console.log(data);
+                  $('#myform')[0].reset();
+                  window.location.href = '/read.html?id='+data._id.$oid;
                 }
-        }).done(function(){
-           var pathname = window.location.pathname; // Returns path only
-           var url      = document.location.href;  
-
-           var array = url.split('/');
-
-           var lastsegment = array[array.length-1];
-
-           url = url.replace(lastsegment, 'custom-feed');
-           console.log(url);
-           $('#myform')[0].reset();
-            //window.location.assign('https://horrorcast.goodbarber.com/pview/horrorcast/custom-read');
-           window.location.href = '/feed.html';
-           //$(location).attr('href', 'custom-feed')
-           //window.location.replace('/custom-feed');
-           //var button = $('a').attr('href', '/custom-feed');
-           //console.log(button);
-           //$('a[href="/custom-feed"]').click();
-           //console.log('Clickity click')
         });
 }
 
