@@ -25,7 +25,7 @@ function yay(){
  var user;
  var userlogin = 'Failed';
  var inputdate = new Date();
- var date1 = inputdate.toDateString();
+ var date1 = inputdate.toUTCString();
  if(window.localStorage.user == null) {
    userlogin = window.localStorage.lastValidLogin
  } else {
