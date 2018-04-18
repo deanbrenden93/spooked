@@ -120,7 +120,7 @@
     height: 32px;
     margin-top: 0px;
     margin-bottom: 0px;
-    background-image: url(upvote_empty.png);
+    background-image: url(/images/read/upvote_empty.png);
     background-color: rgba(0, 0, 0, 0);
     background-size: 32px 32px;
     border: none;
@@ -133,7 +133,7 @@
     height: 32px;
     margin-top: 0px;
     margin-bottom: 0px;
-    background-image: url(downvote_empty.png);
+    background-image: url(/images/read/downvote_empty.png);
     background-color: rgba(0, 0, 0, 0);
     background-size: 32px 32px;
     border: none;
@@ -205,9 +205,9 @@ textarea{
       <h1 class="title"> Title of Story </h1>
       <hr class="break">
       <div class="postinfo">
-        <h2 class="author"> By [username] <img src="testuser.png" class="profilepic">
+        <h2 class="author"> By [username] <img src="/images/read/testuser.png" class="profilepic">
         </h2>
-        <p class="stats"> Category | 1231 views | <img class="commenticon" src="comment_icon.png">
+        <p class="stats"> Category | 1231 views | <img class="commenticon" src="/images/read/comment_icon.png">
           21 </p>
         <p class="usercontrols"> Edit | Report | Delete </p>
       </div>
@@ -350,10 +350,8 @@ minlength="500" required="">        </textarea>
     
   </body>
 </html>
-
-<script>
-   var url_string = window.location.href
-   var url = new URL(url_string);
-   var storyid = url.searchParams.get("id"); 
-   document.getElementById('storyid').innerHTML = storyid;
-</script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script src="/js/read.js"></script>
