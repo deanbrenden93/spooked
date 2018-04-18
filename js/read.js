@@ -6,7 +6,8 @@ $.ajax({
 	url: "https://api.mlab.com/api/1/databases/darknessprevails/collections/darknessprevailssubmissions/"+storyid+"?apiKey=aDwl-yLfA68HFnJWjDsZmF8akGTu3lKJ",
 	method: 'get',
 	success: function(data){
-        console.log(data);
+        var text = data.story;
+        text = text.replace(/\r?\n/g, '<br />');
 		$('body').html(
 		`<div class="storymeta">
           <h1 class="title"> `+data.title+` </h1>
@@ -23,7 +24,7 @@ $.ajax({
           </div>
           <hr class="break">
           <div class="body">
-            <p class="storybody">`+data.story+`</p>
+            <p class="storybody">`+text+`</p>
             <hr class="break">
           </div>
           <p> End <br><br>Share this story:<br>(add share button or buttons, whatever is most efficient)</p>
