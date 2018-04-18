@@ -20,7 +20,7 @@ $.ajax({
 		)
 		for(i=1;i<data.length;i++){
 			$('#outerstorycont').append(
-			`<div class="container" onclick='gotoread("`+data[i]._id.$oid+`")>
+			`<div class="container" onclick='gotoread("`+data[i]._id.$oid+`")'>
 			 <div class="story">
 			<div class="entrytext">
 					<p class="title">`+data[i].title+`</p>
