@@ -3,7 +3,7 @@ var url = new URL(url_string);
 var storyid = url.searchParams.get("id"); 
 
 $.ajax({
-	url: "https://api.mlab.com/api/1/databases/darknessprevails/collections/darknessprevailssubmissions"+storyid+"?apiKey=aDwl-yLfA68HFnJWjDsZmF8akGTu3lKJ",
+	url: "https://api.mlab.com/api/1/databases/darknessprevails/collections/darknessprevailssubmissions/"+storyid+"?apiKey=aDwl-yLfA68HFnJWjDsZmF8akGTu3lKJ",
 	method: 'get',
 	success: function(data){
         console.log(data);
