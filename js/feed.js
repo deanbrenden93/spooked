@@ -18,7 +18,7 @@ $.ajax({
 		<hr class="break"> </div>
 	</div>`
 		)
-		for(i=0;i<data.length;i++){
+		for(i=1;i<data.length;i++){
 			$('#outerstorycont').append(
 			`<div class="container">
 			 <div class="story">
