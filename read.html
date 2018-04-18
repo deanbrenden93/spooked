@@ -1,0 +1,7 @@
+<div id='storyid'></div>
+<script>
+   var url_string = window.location.href
+   var url = new URL(url_string);
+   var storyid = url.searchParams.get("id"); 
+   document.getElementById('storyid').innerHTML = storyid;
+</script>

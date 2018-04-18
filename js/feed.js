@@ -43,4 +43,8 @@ function fixdate(datechange){
     return feeddate.substr(4, feeddate.length-1);
 }
 
+function gotoread(storyId){
+    window.location.href = '/read.html?id='+storyId;
+}
+
 //https://dl.dropbox.com/s/bkmd8qhu038pmm3/feed.js
