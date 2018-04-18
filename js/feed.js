@@ -5,7 +5,7 @@ $.ajax({
 	success: function(data){
 		console.log(data[0]._id.$oid);
 		$('#outerstorycont').html(
-		`<div class="container" onclick='gotoread(`+data[0]._id.$oid+`)'>
+		`<div class="container" onclick='gotoread("`+data[0]._id.$oid+`")'>
 			 <div class="story">
 			<div class="entrytext">
 					<p class="title">`+data[0].title+`</p>
@@ -20,7 +20,7 @@ $.ajax({
 		)
 		for(i=1;i<data.length;i++){
 			$('#outerstorycont').append(
-			`<div class="container">
+			`<div class="container" onclick='gotoread("`+data[i]._id.$oid+`")>
 			 <div class="story">
 			<div class="entrytext">
 					<p class="title">`+data[i].title+`</p>
