@@ -2,23 +2,30 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spooked - Submission Form</title>
     <script>
-function openNav() {
-    document.getElementById("mySidenav").style.width = "75px";
-    document.getElementById("main").style.marginLeft = "75px";
-    document.getElementById("feed").style.marginLeft = "90px";
-    document.body.style.backgroundColor = "black";
-    document.getElementById("menubutton").style.width = "0";
-}
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "75px";
+            document.getElementById("main").style.marginLeft = "75px";
+            document.getElementById("feed").style.marginLeft = "90px";
+            document.body.style.backgroundColor = "black";
+            document.getElementById("menubutton").style.width = "0";
+        }
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-    document.getElementById("feed").style.marginLeft = "0";
-    document.body.style.backgroundColor = "black";
-    document.getElementById("menubutton").style.width = "50px";
-}
-  </script>
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+            document.getElementById("feed").style.marginLeft = "0";
+            document.body.style.backgroundColor = "black";
+            document.getElementById("menubutton").style.width = "50px";
+        }
+    </script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="/js/feed.js"></script>
   </head>
   <body class="feed" id="feed">
     <div id="mySidenav" class="sidenav"> <a href="javascript:void(0)" class="closebtn"
@@ -31,7 +38,7 @@ function closeNav() {
     <div class="filter"> <label>Filter&#8801;</label> </div>
     <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <title></title>
+    
     <style>
 
 .filter {
@@ -181,16 +188,8 @@ function closeNav() {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
-}
-
-        
-        
-        
-        
-        
-        
-        
-        
+}       
+               
 *:focus {
   outline: none;
 }
@@ -354,8 +353,9 @@ function closeNav() {
   font-size: 12px;
 }
 
-</style> <div class="container" id="outerstorycont">
-      <div class="story">
+</style> 
+    <div class="container" id="outerstorycont">
+      <!--<div class="story">
         <div class="entrytext">
           <p class="title">I Saw Something Crawling Down The Cliffside</p>
           <p class="authordate"> By [pen name] on Date<br>
@@ -495,12 +495,7 @@ function closeNav() {
             <p class="votecount">3</p>
             <button id="downvote" class="downvote"></button> </div>
           <hr class="break"> </div>
-      </div>
+      </div>-->
     </div>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-    <script src="/js/feed.js"></script>
   </body>
 </html>
