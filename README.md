@@ -1,2 +1,5 @@
-# spooked
-<a href="https://spooked.herokuapp.com/" title="Title">Spooked app</a> for Darkness Prevails at http://darknessprevails.org/
+# [Spooked]
+[Spooked] app for Darkness Prevails at http://darknessprevails.org/
+
+
+[Spooked]: https://spooked.herokuapp.com/
