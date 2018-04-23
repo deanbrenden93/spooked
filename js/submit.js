@@ -10,8 +10,12 @@ Link to debug: https://horrorcast.goodbarber.com/pview/horrorcast/custom-submit
 if(window.localStorage.username == null){
     var url_string = window.location.href;
     var url = new URL(url_string);
-    var username = url.searchParams.get("username"); 
-
+    try{
+        var username = url.searchParams.get("username"); 
+    } catch(e){
+        var username;
+    }
+        
     if(username == null){
         window.location.href = '/login.html';
     } else {
