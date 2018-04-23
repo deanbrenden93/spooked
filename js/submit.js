@@ -13,7 +13,7 @@ if(window.localStorage.username == null){
     try{
         var username = url.searchParams.get("username"); 
     } catch(e){
-        var username = parse_query_string(location.search)["username"];
+        var username = parse_query_string(location.search.substring(1))["username"];
     }
         
     if(username == null){
