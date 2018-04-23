@@ -7,6 +7,20 @@ CDN Link: https://dl.dropbox.com/s/0tzktfzq502vd9e/darknessprevailssubmit.js
 Link to debug: https://horrorcast.goodbarber.com/pview/horrorcast/custom-submit
 */
 
+if(window.localStorage.username == null){
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var username = url.searchParams.get("username"); 
+
+    if(username == null){
+        window.location.href = '/login.html';
+    } else {
+        window.localStorage.setItem('username', username);
+    }
+}else{
+    var username = window.localStorage.username;
+}
+
 $(function() {
     //hang on event of form with id=myform
     $("#myform").submit(function(e) {
@@ -22,20 +36,20 @@ function yay(){
  var storytype;
  var category;
  var trmcnd;
- var user;
- var userlogin = 'Failed';
+ //var user;
+ //var userlogin = 'Failed';
  var inputdate = new Date();
  var date1 = inputdate.toUTCString();
- if(window.localStorage.user == null) {
-   userlogin = window.localStorage.lastValidLogin
- } else {
-   user = JSON.parse(window.localStorage.user);
-   userlogin = user.login;
- }
+ //if(window.localStorage.user == null) {
+//   userlogin = window.localStorage.lastValidLogin
+// } else {
+  // user = JSON.parse(window.localStorage.user);
+//   userlogin = user.login;
+ //}
 
- if(userlogin == null) {
-    userlogin = "Cannot get username";
- }
+// if(userlogin == null) {
+  //  userlogin = "Cannot get username";
+ //}
  
   if($('#fictional').is(':checked')) storytype = 'Fictional Story';
   else if($('#true').is(':checked')) storytype = 'True Story';
@@ -50,7 +64,7 @@ function yay(){
                 url: "https://api.mlab.com/api/1/databases/darknessprevails/collections/darknessprevailssubmissions?apiKey=aDwl-yLfA68HFnJWjDsZmF8akGTu3lKJ",
                 type: 'post',
                 contentType: 'application/json',
-                data: JSON.stringify({"user": userlogin, "title": $('#title').val(), "penname": $('#penname').val(), "storytype": storytype, "category": category, "story": $('#story').val(), "trmcnd": trmcnd, "votes": 0, "submitdate": date1, "views": [] }),
+                data: JSON.stringify({"user": username, "title": $('#title').val(), "penname": $('#penname').val(), "storytype": storytype, "category": category, "story": $('#story').val(), "trmcnd": trmcnd, "votes": 0, "submitdate": date1, "views": [] }),
                 success: function(data) {
                     //... do something with the data...
                   console.log(data);
