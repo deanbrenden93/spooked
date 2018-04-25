@@ -1,3 +1,7 @@
+if(window.localStorage.username == null){
+    window.location.href = '/login.html';
+}
+
 var url_string = window.location.href
 var url = new URL(url_string);
 var storyid = url.searchParams.get("id"); 

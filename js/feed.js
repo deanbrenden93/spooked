@@ -1,3 +1,6 @@
+if(window.localStorage.username == null){
+    window.location.href = '/login.html';
+}
 
 $.ajax({
 	url: "https://api.mlab.com/api/1/databases/darknessprevails/collections/darknessprevailssubmissions?s={'submitdate':-1}&apiKey=aDwl-yLfA68HFnJWjDsZmF8akGTu3lKJ",
