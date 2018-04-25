@@ -1,5 +1,7 @@
 if(window.localStorage.username == null){
     window.location.href = '/login.html';
+}else{
+    var username = window.localStorage.username;
 }
 
 $.ajax({
@@ -38,6 +40,15 @@ $.ajax({
 		)
 		}
 	}
+})
+
+
+$('button.upvote').click(function(){
+    console.log("Upvote");
+})
+
+$('button.downvote').click(function(){
+    console.log("Downvote");
 })
 
 function fixdate(datechange){

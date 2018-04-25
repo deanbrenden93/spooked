@@ -1,5 +1,7 @@
 if(window.localStorage.username == null){
     window.location.href = '/login.html';
+}else{
+    var username = window.localStorage.username;
 }
 
 var url_string = window.location.href

@@ -143,3 +143,4 @@ function sha1(msg) //borrowed from 'https://softwareengineering.stackexchange.co
     return tohex(H0) + tohex(H1) + tohex(H2) + tohex(H3) + tohex(H4);
 }
 
+
