@@ -43,11 +43,13 @@ $.ajax({
 })
 
 
-$('button.upvote').click(function(){
+$('button.upvote').click(function(e){
+    e.stopPropagation();
     console.log("Upvote");
 })
 
-$('button.downvote').click(function(){
+$('button.downvote').click(function(e){
+    e.stopPropagation();
     console.log("Downvote");
 })
 
