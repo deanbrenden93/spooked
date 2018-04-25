@@ -13,11 +13,9 @@ $.ajax({
 		`<div class="container" onclick='gotoread("`+data[0]._id.$oid+`")'>
 			 <div class="story">
 			<div class="entrytext">
-                <div class="clickarea">
 					<p class="title">`+data[0].title+`</p>
 					<p class="authordate"> By `+data[0].penname+` on `+fixdate(data[0].submitdate)+`<br>
 `+data[0].category+` | `+(data[0].views).length+` Views </p>
-                </div>
 			</div>
 			<div class="votes"> <button id="upvote" class="upvote" type="image"></button>
 					<p class="votecount">`+data[0].votes+`</p>
@@ -30,11 +28,9 @@ $.ajax({
 			`<div class="container" onclick='gotoread("`+data[i]._id.$oid+`")'>
 			 <div class="story">
 			<div class="entrytext">
-                <div class="clickarea">
 					<p class="title">`+data[i].title+`</p>
 					<p class="authordate"> By `+data[i].penname+` on `+fixdate(data[i].submitdate)+`<br>
 `+data[i].category+` | `+(data[i].views).length+` Views </p>
-                </div>
 			</div>
 			<div class="votes"> <button id="upvote" class="upvote" type="image"></button>
 					<p class="votecount">`+data[i].votes+`</p>
