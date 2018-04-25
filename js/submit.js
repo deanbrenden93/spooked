@@ -89,7 +89,7 @@ function yay(){
                 url: "https://api.mlab.com/api/1/databases/darknessprevails/collections/darknessprevailssubmissions?apiKey=aDwl-yLfA68HFnJWjDsZmF8akGTu3lKJ",
                 type: 'post',
                 contentType: 'application/json',
-                data: JSON.stringify({"user": username, "title": $('#title').val(), "penname": $('#penname').val(), "storytype": storytype, "category": category, "story": $('#story').val(), "trmcnd": trmcnd, "votes": [], "submitdate": date1, "views": [] }),
+                data: JSON.stringify({"user": username, "title": $('#title').val(), "penname": $('#penname').val(), "storytype": storytype, "category": category, "story": $('#story').val(), "trmcnd": trmcnd, "votes": 0, "voters": [], "votetype": [],  "submitdate": date1, "views": [] }),
                 success: function(data) {
                     //... do something with the data...
                   console.log(data);
