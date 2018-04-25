@@ -26,7 +26,7 @@ $.ajax({
             <p class="usercontrols"> Edit | Report | Delete </p>
           </div>
           <div class="votes"> <button id="upvote" class="upvote" type="image" onclick='upvote(event, "`+storyid+`")'></button>
-            <label class="votecount">`+data.votes+`</label> <button id="downvote" class="downvote" onclick='downvote(event, , "`+storyid+`")'></button>
+            <label class="votecount">`+data.votes+`</label> <button id="downvote" class="downvote" onclick='downvote(event, "`+storyid+`")'></button>
           </div>
           <hr class="break">
           <div class="body">
@@ -45,7 +45,10 @@ $.ajax({
           Comments go here
           <hr class="break"> </div>`
 		)
-	}
+	},
+    complete: function(){
+        runupdatevotes();    
+    }
 })
 
 function upvote(e, storyid){
@@ -59,9 +62,11 @@ function upvote(e, storyid){
             console.log(data.voters);
             var voters = data.voters;
             var votetype = data.votetype;
-            if(voters.indexOf(username) < 0 || votetype[voters.indexOf(username)] == 'D'){
+            if(voters.indexOf(username) < 0 || votetype[voters.indexOf(username)] == 'D' || votetype[voters.indexOf(username)] == 'N'){
                 if(voters.indexOf(username) < 0){
                     voters.push(username);
+                } else if (votetype[voters.indexOf(username)] == 'D') {
+                    votetype[voters.indexOf(username)] = 'N';
                 } else {
                     votetype[voters.indexOf(username)] = 'U';
                 }
@@ -83,9 +88,11 @@ function downvote(e, storyid){
             console.log(data.voters);
             var voters = data.voters;
             var votetype = data.votetype;
-            if(voters.indexOf(username) < 0 || votetype[voters.indexOf(username)] == 'U'){
+            if(voters.indexOf(username) < 0 || votetype[voters.indexOf(username)] == 'U' || votetype[voters.indexOf(username)] == 'N'){
                 if(voters.indexOf(username) < 0){
                     voters.push(username);
+                } else if (votetype[voters.indexOf(username)] == 'U') {
+                    votetype[voters.indexOf(username)] = 'N';
                 } else {
                     votetype[voters.indexOf(username)] = 'D';
                 }
@@ -150,4 +157,21 @@ function updateview(views, storyID){
 }
 
 getviews(storyid);
+
+function runupdatevotes(){
+    $('.votecount').each(function(index, value){
+        val = $(this).html();
+        console.log(val);
+        if(val == 0){ 
+            $(this).siblings('.upvote').css('background-image', 'url(/images/feed/upvote_empty.png)');
+            $(this).siblings('.downvote').css('background-image', 'url(/images/feed/downvote_empty.png)');
+        } else if(val < 0) {
+            $(this).siblings('.upvote').css('background-image', 'url(/images/feed/upvote_empty.png)');
+            $(this).siblings('.downvote').css('background-image', 'url(/images/feed/downvote_clicked.png)');
+        } else if(val > 0) {
+            $(this).siblings('.upvote').css('background-image', 'url(/images/feed/upvote_clicked.png)');
+            $(this).siblings('.downvote').css('background-image', 'url(/images/feed/downvote_empty.png)');
+        }
+    })
+}
 //$('.')

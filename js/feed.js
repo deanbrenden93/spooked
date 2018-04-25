@@ -39,7 +39,10 @@ $.ajax({
 	</div>`
 		)
 		}
-	}
+	},
+    complete: function(){
+        runupdatevotes();    
+    }
 })
 
 
@@ -55,9 +58,11 @@ function upvote(e, storyid){
             var voters = data.voters;
             var votetype = data.votetype;
             console.log(votetype[voters.indexOf(username)])
-            if(voters.indexOf(username) < 0 || votetype[voters.indexOf(username)] == 'D'){
+            if(voters.indexOf(username) < 0 || votetype[voters.indexOf(username)] == 'D' || votetype[voters.indexOf(username)] == 'N'){
                 if(voters.indexOf(username) < 0){
                     voters.push(username);
+                } else if (votetype[voters.indexOf(username)] == 'D') {
+                    votetype[voters.indexOf(username)] = 'N';
                 } else {
                     votetype[voters.indexOf(username)] = 'U';
                 }
@@ -80,9 +85,11 @@ function downvote(e, storyid){
             var voters = data.voters;
             var votetype = data.votetype;
             console.log(votetype[voters.indexOf(username)])
-            if(voters.indexOf(username) < 0 || votetype[voters.indexOf(username)] == 'U'){
+            if(voters.indexOf(username) < 0 || votetype[voters.indexOf(username)] == 'U' || votetype[voters.indexOf(username)] == 'N'){
                 if(voters.indexOf(username) < 0){
                     voters.push(username);
+                } else if (votetype[voters.indexOf(username)] == 'U') {
+                    votetype[voters.indexOf(username)] = 'N';
                 } else {
                     votetype[voters.indexOf(username)] = 'D';
                 }
@@ -127,5 +134,27 @@ function fixdate(datechange){
 function gotoread(storyId){
     window.location.href = '/read.html?id='+storyId;
 }
+
+function runupdatevotes(){
+    console.log('hello');
+    $('.votecount').each(function(index, value){
+        val = $(this).html();
+        console.log(val);
+        if(val == 0){ 
+            $(this).siblings('.upvote').css('background-image', 'url(/images/feed/upvote_empty.png)');
+            $(this).siblings('.downvote').css('background-image', 'url(/images/feed/downvote_empty.png)');
+        } else if(val < 0) {
+            $(this).siblings('.upvote').css('background-image', 'url(/images/feed/upvote_empty.png)');
+            $(this).siblings('.downvote').css('background-image', 'url(/images/feed/downvote_clicked.png)');
+        } else if(val > 0) {
+            $(this).siblings('.upvote').css('background-image', 'url(/images/feed/upvote_clicked.png)');
+            $(this).siblings('.downvote').css('background-image', 'url(/images/feed/downvote_empty.png)');
+        }
+    })
+}
+
+$(document).ready(function(){
+    runupdatevotes();
+})
 
 //https://dl.dropbox.com/s/bkmd8qhu038pmm3/feed.js
